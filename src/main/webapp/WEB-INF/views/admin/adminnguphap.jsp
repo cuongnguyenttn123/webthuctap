@@ -23,6 +23,8 @@
         <br/>
         <textarea name="noiDung" id="editor" cols="30" rows="10"></textarea>
         <input type="submit" value="Submit">
+
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
     </form>
 <script>
     var editor = CKEDITOR.replace('editor');

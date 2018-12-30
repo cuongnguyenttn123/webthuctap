@@ -57,6 +57,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <button id="xulyupdatetuvung"  class="btn btn-primary hidden">Update Từ Vựng</button>
                                     <button id="xulythoat"  class="btn btn-primary hidden">Thoát</button>
                                 </div>
+
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                             </form>
 
                             <button  class="btn btn-primary">

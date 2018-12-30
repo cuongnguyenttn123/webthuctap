@@ -53,6 +53,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <button id="xulythoat"  class="btn btn-primary hidden">Thoát</button>
                             </div>
                         </div>
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                     </form>
 
                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
