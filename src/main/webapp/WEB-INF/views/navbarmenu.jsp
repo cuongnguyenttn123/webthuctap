@@ -31,7 +31,7 @@
                         <button type="submit" class="btn btn-info">Search</button>
                     </form>
                     <li><a href="/login">Đăng Nhập</a></li>
-                    <li><a href="/login/">Đăng Ký</a></li>
+                    <li><a href="/dangky/">Đăng Ký</a></li>
                     <%--<li><a href="/login/">Xin Chào: Cuòn</a>--%>
                 </ul>
             </div><!-- /.navbar-collapse -->
