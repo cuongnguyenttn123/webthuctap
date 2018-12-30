@@ -47,6 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                 <label for="level">Cấp Độ: </label>
                                 <input class="form-control" name="level" id="level">
+                                <input type="hidden" name="user" value="${pageContext.request.userPrincipal.name}">
                                 <br/>
                                 <button id="xuly" type="submit" class="btn btn-primary">Thêm Bài Học</button>
                                 <button id="xulyupdate"  class="btn btn-primary hidden">Update Bài Học</button>

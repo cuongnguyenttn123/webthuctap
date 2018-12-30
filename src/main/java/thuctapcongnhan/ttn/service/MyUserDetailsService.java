@@ -33,4 +33,10 @@ public class MyUserDetailsService implements UserDetailsService {
     public thuctapcongnhan.ttn.entity.User getUserByd(Integer id){
         return userReponsitory.findById(id);
     }
+
+    public thuctapcongnhan.ttn.entity.User getUserByName(String user ){
+        return userReponsitory.findByUsername(user);
+    }
+
+
 }

@@ -6,7 +6,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import thuctapcongnhan.ttn.domain.BaiHocResponse;
 import thuctapcongnhan.ttn.entity.BaiHocEntity;
+import thuctapcongnhan.ttn.entity.User;
 import thuctapcongnhan.ttn.service.BaiHocService;
+import thuctapcongnhan.ttn.service.MyUserDetailsService;
 
 import java.util.List;
 
@@ -17,6 +19,9 @@ public class AdminController {
 
     @Autowired
     BaiHocService baiHocService;
+
+    @Autowired
+    MyUserDetailsService myUserDetailsService;
 
     @GetMapping()
     public String getAdmin(){
@@ -32,8 +37,11 @@ public class AdminController {
     }
 
     @PostMapping("/thembaihoc")
-    public String themBaiHoc(@RequestParam String tenBaiHoc, @RequestParam String level, @RequestParam String chuThich){
+    public String themBaiHoc(@RequestParam String tenBaiHoc, @RequestParam String level, @RequestParam String chuThich,
+                             @RequestParam String user){
+        User user1 = myUserDetailsService.getUserByName(user);
         BaiHocEntity baiHocEntity = new BaiHocEntity(tenBaiHoc, chuThich, level);
+        baiHocEntity.setUser(user1);
         baiHocService.createBaiHocEntity(baiHocEntity);
         return "admin/dashboard";
     }

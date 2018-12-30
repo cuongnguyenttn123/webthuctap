@@ -8,4 +8,5 @@ import thuctapcongnhan.ttn.entity.User;
 public interface UserReponsitory extends JpaRepository<User, Integer> {
     User findByUsername(String user);
     User findById(Integer id);
+
 }
