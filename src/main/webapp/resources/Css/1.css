@@ -1,0 +1,56 @@
+*{margin: 0;padding: 0;}
+
+#header {
+    background: url("../Images/japan.jpg");
+    height: 550px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+a {
+    color:red;
+}
+
+nav.navbar.navbar-default{
+    height: 40px;
+    padding: 0px;
+    background: rgba(36, 173, 233, 0);
+    border: none;
+}
+.xanh{
+    background-color: #1abc9c;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.xanh h3{
+    padding-bottom:20px;
+    padding-top: 20px;
+    color: red;
+}
+.list-group{
+    margin-bottom: 0px;
+}
+
+ul.list-group {
+    list-style: none;
+    margin-left: 20px;
+}
+.canchuan{
+    height: 250px;
+}
+img.tag_icon {
+    height: 180px;
+}
+.container{
+    padding-top: 30px;
+}
+.tinmoi img{
+    float: left;
+    margin: 15px;
+}
+.tinmoind{
+
+}
+.hidden{
+    display: none;
+}
