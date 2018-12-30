@@ -1,7 +1,9 @@
 package thuctapcongnhan.ttn.service;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import thuctapcongnhan.ttn.converter.BaiHocConverter;
 import thuctapcongnhan.ttn.converter.NguPhapConverter;
 import thuctapcongnhan.ttn.converter.TuVungConverter;
@@ -10,11 +12,13 @@ import thuctapcongnhan.ttn.domain.BaiHocResponse;
 import thuctapcongnhan.ttn.domain.NguPhapReponse;
 import thuctapcongnhan.ttn.domain.TuVungReponse;
 import thuctapcongnhan.ttn.entity.BaiHocEntity;
+import thuctapcongnhan.ttn.entity.TuVungEntity;
 import thuctapcongnhan.ttn.reponsitory.BaiHocReponsitory;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class BaiHocService {
     @Autowired
     BaiHocReponsitory baiHocReponsitory;
@@ -32,9 +36,10 @@ public class BaiHocService {
     public List<BaiHocResponse> getListBaiHocByLevel(String level){
         return BaiHocConverter.converterListByEntity(baiHocReponsitory.findByLevel(level));
     }
-
+    @Transactional
     public List<TuVungReponse> getListTuVungById(Integer id){
         BaiHocEntity baiHocEntity = baiHocReponsitory.findAllById(id);
+        List<TuVungEntity> tuVungReponses = baiHocEntity.getVocabularyEntities();
         return TuVungConverter.converterByBaiHocEntity(baiHocEntity);
     }
 

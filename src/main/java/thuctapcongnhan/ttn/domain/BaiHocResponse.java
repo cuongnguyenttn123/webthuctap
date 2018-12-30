@@ -7,8 +7,7 @@ public class BaiHocResponse {
     private String tenBaiHoc;
     private String chuThich;
     private String level;
-    private List<NguPhapReponse> nguPhapReponse;
-    private List<TuVungReponse> tuVungReponseList;
+
 
     public BaiHocResponse() {
     }
@@ -18,25 +17,10 @@ public class BaiHocResponse {
         this.tenBaiHoc = tenBaiHoc;
         this.chuThich = chuThich;
         this.level = level;
-        this.nguPhapReponse = nguPhapReponse;
-        this.tuVungReponseList = tuVungReponseList;
+
     }
 
-    public List<NguPhapReponse> getNguPhapReponse() {
-        return nguPhapReponse;
-    }
 
-    public void setNguPhapReponse(List<NguPhapReponse> nguPhapReponse) {
-        this.nguPhapReponse = nguPhapReponse;
-    }
-
-    public List<TuVungReponse> getTuVungReponseList() {
-        return tuVungReponseList;
-    }
-
-    public void setTuVungReponseList(List<TuVungReponse> tuVungReponseList) {
-        this.tuVungReponseList = tuVungReponseList;
-    }
 
     public String getLevel() {
         return level;

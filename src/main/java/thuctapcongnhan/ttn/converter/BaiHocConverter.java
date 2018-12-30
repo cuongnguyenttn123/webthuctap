@@ -10,8 +10,6 @@ public class BaiHocConverter {
     public static BaiHocResponse converterByEntity(BaiHocEntity baiHocEntity){
         BaiHocResponse baiHocResponse = new BaiHocResponse(baiHocEntity.getId(), baiHocEntity.getTenBaiHoc(),
                 baiHocEntity.getChuThich(),baiHocEntity.getLevel());
-        baiHocResponse.setNguPhapReponse(NguPhapConverter.converterByEntity(baiHocEntity.getNguPhapEntityList()));
-        baiHocResponse.setTuVungReponseList(TuVungConverter.converterByTuVungEntity(baiHocEntity.getVocabularyEntities()));
         return baiHocResponse;
     }
 

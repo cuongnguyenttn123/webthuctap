@@ -27,10 +27,10 @@ public class BaiHocEntity {
     @JoinColumn(name = "iduser", nullable = false)
     private User user;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "lessonEntity", cascade = {CascadeType.ALL})
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "lessonEntity", cascade = {CascadeType.ALL})
     private List<NguPhapEntity> nguPhapEntityList;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "lessonEntity", cascade = {CascadeType.ALL})
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "lessonEntity", cascade = {CascadeType.ALL})
     private List<TuVungEntity> vocabularyEntities;
 
     public BaiHocEntity(String tenBaiHoc, String chuThich, String level) {

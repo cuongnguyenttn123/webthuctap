@@ -2,6 +2,7 @@ package thuctapcongnhan.ttn.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import thuctapcongnhan.ttn.converter.TuVungConverter;
 import thuctapcongnhan.ttn.dao.TuVungDAO;
 import thuctapcongnhan.ttn.domain.TuVungReponse;
@@ -9,8 +10,6 @@ import thuctapcongnhan.ttn.entity.BaiHocEntity;
 import thuctapcongnhan.ttn.entity.TuVungEntity;
 import thuctapcongnhan.ttn.reponsitory.BaiHocReponsitory;
 import thuctapcongnhan.ttn.reponsitory.TuVungReponsitory;
-
-import java.util.List;
 
 @Service
 public class TuVungService {
@@ -26,7 +25,7 @@ public class TuVungService {
     public TuVungReponse findById(Integer id){
         return TuVungConverter.converterByEntity(tuVungReponsitory.findAllById(id));
     }
-
+    @Transactional
     public void deleteTuVungById(Integer id){
         tuVungReponsitory.deleteById(id);
     }

@@ -2,18 +2,23 @@ package thuctapcongnhan.ttn.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import thuctapcongnhan.ttn.entity.TuVungEntity;
+import thuctapcongnhan.ttn.reponsitory.TuVungReponsitory;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.transaction.Transactional;
+
 
 @Repository
-@Transactional
+@Transactional(rollbackFor = Exception.class)
 public class TuVungDAO {
 
     @Autowired
     EntityManagerFactory entityManagerFactory;
+
+    @Autowired
+    TuVungReponsitory tuVungReponsitory;
 
     @org.springframework.transaction.annotation.Transactional
     public void themTuVung(TuVungEntity tuVungEntity){
@@ -32,4 +37,15 @@ public class TuVungDAO {
         entityManager.close();
         System.out.println();
     }
+
+    public void deleteTuVung(Integer id){
+        TuVungEntity tuVungEntity = tuVungReponsitory.findAllById(id);
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager.remove(tuVungEntity);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+    }
+
+
 }
