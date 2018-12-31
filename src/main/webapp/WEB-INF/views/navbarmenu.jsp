@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="nav3">
@@ -13,7 +14,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="/">Trang Chủ</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Học Minna<b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Minna No<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="/minna/N5">N5</a></li>
                             <li><a href="/minna/N4">N4</a></li>
@@ -30,9 +31,22 @@
                         </div>
                         <button type="submit" class="btn btn-info">Search</button>
                     </form>
-                    <li><a href="/login">Đăng Nhập</a></li>
-                    <li><a href="/dangky/">Đăng Ký</a></li>
-                    <%--<li><a href="/login/">Xin Chào: Cuòn</a>--%>
+
+                    <c:if test="${not empty pageContext.request.userPrincipal.name}">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Xin Chào:
+                                ${pageContext.request.userPrincipal.name}
+                                <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/admin">Admin</a></li>
+                                <li><a href="/logout">Logout</a></li>
+                            </ul>
+                        </li>
+                    </c:if>
+                    <c:if test="${ empty pageContext.request.userPrincipal.name}">
+                        <li><a href="/login">Đăng Nhập</a></li>
+                        <li><a href="/dangky/">Đăng Ký</a></li>
+                    </c:if>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div>
