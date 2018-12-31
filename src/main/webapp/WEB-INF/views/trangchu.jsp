@@ -68,44 +68,6 @@
 
     <hr class="thegach">
 
-
-
-    <div class="row">
-
-        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-            <article class="tinmoi">
-                <img src="../resources/Images/minna/baitap.jfif" alt="">
-                <div class="tinmoind">
-                    <h4>Bai viet noi bat 1</h4>
-                    <h5>Khi den voi tieng nhat ban se co nhieu trai nghiem thu vi cung vocugn toi voi nhung  thong tin thu vij va hap da... <a href="">xem tiep</a></h5>
-                </div>
-            </article>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-            <article class="tinmoi">
-                <img src="../resources/Images/minna/baitap.jfif" alt="">
-                <div class="tinmoind">
-                    <h4>Bai viet noi bat 1</h4>
-                    <h5>Khi den voi tieng nhat ban se co nhieu trai nghiem thu vi cung vocugn toi voi nhung  thong tin thu vij va hap da... <a href="">xem tiep</a></h5>
-                </div>
-            </article>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-            <article class="tinmoi">
-                <img src="../resources/Images/minna/baitap.jfif" alt="">
-                <div class="tinmoind">
-                    <h4>Bai viet noi bat 1</h4>
-                    <h5>Khi den voi tieng nhat ban se co nhieu trai nghiem thu vi cung vocugn toi voi nhung  thong tin thu vij va hap da... <a href="">xem tiep</a></h5>
-                </div>
-            </article>
-        </div>
-    </div>
 </div>
 <jsp:include page="footer.jsp"/>
 </body>
