@@ -34,7 +34,7 @@ public class LoginController {
     @RequestMapping("/logout")
     public String logout(final Model model) {
         model.addAttribute("message", "Logged out!");
-        return "login";
+        return "trangchu";
     }
 
     @GetMapping("/dangky")

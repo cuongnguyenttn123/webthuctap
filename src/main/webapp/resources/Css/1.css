@@ -1,5 +1,9 @@
 *{margin: 0;padding: 0;}
 
+.thea li a {
+    color: red;
+}
+
 #header {
     background: url("../Images/japan.jpg");
     height: 550px;
@@ -7,9 +11,12 @@
     background-size: cover;
     background-position: center;
 }
-a {
-    color:red;
+.nav li a {
+    color: #4df507;
+    font-size: 20px;
 }
+
+
 
 nav.navbar.navbar-default{
     height: 40px;

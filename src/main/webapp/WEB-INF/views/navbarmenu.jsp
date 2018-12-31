@@ -39,7 +39,12 @@
                                 <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="/admin">Admin</a></li>
-                                <li><a href="/logout">Logout</a></li>
+                                <li>
+                                    <form action="<c:url value="/j_spring_security_logout" />" method="post">
+                                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                                        <button type="submit" class="btn btn-info" style="margin-left: 20px;">Logout </button>
+                                    </form>
+                                </li>
                             </ul>
                         </li>
                     </c:if>

@@ -15,7 +15,7 @@
             <ul class="list-group">
                 <c:forEach items="${list}" var="lession">
                     <li class="list-group-item"><a href=""></a>
-                        <ul class="list-group">
+                        <ul class="list-group thea">
                             <li>
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">${lession.getTenBaiHoc()} : ${lession.getChuThich()}<b class="caret"></b></a>
                                 <ul class="dropdown-menu">

@@ -22,8 +22,8 @@
         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
             <ul class="list-group">
                 <c:forEach items="${list}" var="lession">
-                    <li class="list-group-item"><a href=""></a>
-                        <ul class="list-group">
+                    <li class="list-group-item "><a href=""></a>
+                        <ul class="list-group thea">
                             <li>
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">${lession.getTenBaiHoc()} : ${lession.getChuThich()}<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
