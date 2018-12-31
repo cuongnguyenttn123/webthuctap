@@ -8,6 +8,26 @@ public class BaiHocResponse {
     private String chuThich;
     private String level;
 
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    private String user;
+
+    public String get_csrf() {
+        return _csrf;
+    }
+
+    public void set_csrf(String _csrf) {
+        this._csrf = _csrf;
+    }
+
+    private String _csrf;
+
 
     public BaiHocResponse() {
     }

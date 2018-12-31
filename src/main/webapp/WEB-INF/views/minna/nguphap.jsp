@@ -32,6 +32,8 @@
             </ul>
         </div>
 
+
+
         <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
 
                 <c:forEach var="nguphap" items="${nguphap}">
@@ -39,6 +41,14 @@
                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 
                     </iframe>
+
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+
                     ${nguphap.getNoiDung()}
                 </c:forEach>
 

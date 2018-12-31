@@ -24,7 +24,7 @@
 			<div class="content">
 				<div id="form_wrapper" class="form_wrapper">
 
-					<form class="login active" action="<%=request.getContextPath()%>/add" method="post">
+					<form class="login active" action="/dangky" method="post">
 
 						<div>
 							<label>Username:</label>
@@ -37,7 +37,7 @@
 
 						<div>
 							<label>Nhập lại Password:</label>
-							<input type="password" name="password" placeholder="Enter password" required="required"/>
+							<input type="password" name="password1" placeholder="Enter password" required="required"/>
 						</div>
 						<div class="bottom">
 							<input type="submit" value="Đăng Ký"></input>

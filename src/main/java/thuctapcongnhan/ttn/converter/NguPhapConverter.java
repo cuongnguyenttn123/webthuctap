@@ -25,4 +25,13 @@ public class NguPhapConverter {
     public static List<NguPhapReponse> converterByBaiHocEntity(BaiHocEntity baiHocEntity){
         return converterByEntity(baiHocEntity.getNguPhapEntityList());
     }
+
+    public static NguPhapReponse converterNguPhap(NguPhapEntity nguPhapEntity){
+        NguPhapReponse nguPhapReponse = new NguPhapReponse();
+        nguPhapReponse.setId(nguPhapEntity.getId());
+        nguPhapReponse.setNoiDung(nguPhapEntity.getNoiDung());
+        nguPhapReponse.setUrl(nguPhapEntity.getUrl());
+        nguPhapReponse.setTenNguPhap(nguPhapEntity.getTenNguPhap());
+        return nguPhapReponse;
+    }
 }

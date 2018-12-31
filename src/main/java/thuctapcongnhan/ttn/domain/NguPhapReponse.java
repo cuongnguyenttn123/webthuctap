@@ -7,6 +7,28 @@ public class NguPhapReponse {
     private String url;
     private String noiDung;
     private Integer idBaiHoc;
+    private String _csrf;
+    private String user;
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+
+
+    public String get_csrf() {
+        return _csrf;
+    }
+
+    public void set_csrf(String _csrf) {
+        this._csrf = _csrf;
+    }
+
+
 
     public NguPhapReponse() {
     }

@@ -30,13 +30,16 @@ public class AdminMinnaController {
     public String getLessionAdmin(@PathVariable Integer idBaiHoc, ModelMap modelMap){
         List<TuVungReponse> vocabularyResponses = baiHocService.getListTuVungById(idBaiHoc);
         BaiHocResponse baiHocResponse = baiHocService.getBaiHocById(idBaiHoc) ;
+        List<NguPhapReponse> nguPhapReponses = baiHocService.getNguPhapById(idBaiHoc);
         modelMap.addAttribute("list", baiHocResponse);
         modelMap.addAttribute("voca", vocabularyResponses);
+        modelMap.addAttribute("nguphap", nguPhapReponses);
+
         return "admin/adminminna";
     }
 
 
-    @GetMapping("/xoa/{id}")
+    @GetMapping("/xoa/tuvung/{id}")
     public String deleteMinnaAdmin(@PathVariable Integer id){
         tuVungService.deleteTuVungById(id);
         return "admin/dashboard";
@@ -60,7 +63,10 @@ public class AdminMinnaController {
         modelMap.addAttribute("idBaiHoc", idBaiHoc);
         return "admin/adminnguphap";
     }
-    @PostMapping("/nguphap/themnguphap/{idBaiHoc}")
+
+
+
+    @PostMapping("themnguphap/{idBaiHoc}")
     public String themNguPhap(@PathVariable Integer idBaiHoc, @RequestParam String tenNguPhap, @RequestParam String url,
                               @RequestParam String noiDung){
         NguPhapReponse nguPhapReponse = new NguPhapReponse();
@@ -71,6 +77,13 @@ public class AdminMinnaController {
         nguPhapService.createNguPhap(nguPhapReponse);
         return "admin/dashboard";
     }
+
+    @GetMapping("/xoa/nguphap/{id}")
+    public String deleteMinnaAdminNguPhap(@PathVariable Integer id){
+        nguPhapService.deleteById(id);
+        return "admin/dashboard";
+    }
+
 
 
 }

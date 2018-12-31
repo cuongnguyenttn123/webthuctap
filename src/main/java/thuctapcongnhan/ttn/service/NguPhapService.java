@@ -2,6 +2,7 @@ package thuctapcongnhan.ttn.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import thuctapcongnhan.ttn.converter.NguPhapConverter;
 import thuctapcongnhan.ttn.dao.NguPhapDAO;
 import thuctapcongnhan.ttn.domain.NguPhapReponse;
 import thuctapcongnhan.ttn.entity.BaiHocEntity;
@@ -24,8 +25,9 @@ public class NguPhapService {
     @Autowired
     NguPhapDAO nguPhapDAO;
 
-    public NguPhapEntity getNguPhapById(Integer id){
-        return nguPhapReponsitory.findAllById(id);
+    public NguPhapReponse getNguPhapById(Integer id){
+
+        return NguPhapConverter.converterNguPhap(nguPhapReponsitory.findAllById(id));
     }
     @Transactional
     public void deleteById(Integer id){
@@ -40,6 +42,13 @@ public class NguPhapService {
         nguPhapEntity.setTenNguPhap(nguPhapReponse.getTenNguPhap());
         nguPhapEntity.setNoiDung(nguPhapReponse.getNoiDung());
         nguPhapEntity.setLessonEntity(baiHocEntity);
-
+        nguPhapDAO.themNguPhap(nguPhapEntity);
+    }
+    public void updateNguPhap(NguPhapReponse nguPhapReponse){
+        NguPhapEntity nguPhapEntity = nguPhapReponsitory.findAllById(nguPhapReponse.getId());
+        nguPhapEntity.setTenNguPhap(nguPhapReponse.getTenNguPhap());
+        nguPhapEntity.setNoiDung(nguPhapReponse.getNoiDung());
+        nguPhapEntity.setUrl(nguPhapReponse.getUrl());
+        nguPhapDAO.updateTuVungEntity(nguPhapEntity);
     }
 }

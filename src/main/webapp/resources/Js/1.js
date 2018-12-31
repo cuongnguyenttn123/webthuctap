@@ -14,7 +14,6 @@
         $("#xulyupdate").removeClass("hidden");
         $("#xulythoat").removeClass("hidden");
         $("#xuly").addClass("hidden");
-
         id = $(this).closest("tr").find(".idlession").attr("data-id");
 
         $.ajax({
@@ -66,8 +65,8 @@
     var idTuVung = "";
     $(".updatetuvung").click(function () {
         $("#xulyupdatetuvung").removeClass("hidden");
-        $("#xulythoat").removeClass("hidden");
-        $("#xuly").addClass("hidden");
+        $("#xulythoattuvung").removeClass("hidden");
+        $("#xulytuvung").addClass("hidden");
         idTuVung = $(this).closest("tr").find(".idlession").attr("data-id");
         $.ajax({
             url: "/api/updatetuvung",
@@ -83,6 +82,13 @@
                 $("#nghia").val(value.nghia);
             }
         })
+    })
+
+    $("#xulythoattuvung").click(function (event) {
+        event.preventDefault();
+        $("#xulyupdatetuvung").addClass("hidden");
+        $("#xulythoattuvung").addClass("hidden");
+        $("#xulytuvung").removeClass("hidden");
     })
 
 
@@ -106,6 +112,58 @@
             }
         })
     })
+
+    /*update nguphap*/
+    var idNguPhap = "";
+    $(".updatenguphap").click(function () {
+        $("#xulyupdatenguphap").removeClass("hidden");
+        $("#xulythoatnguphap").removeClass("hidden");
+        $("#xulynguphap").addClass("hidden");
+        idNguPhap = $(this).closest("tr").find(".idnguphap").attr("data-id");
+        $.ajax({
+            url: "/api/updatenguphap",
+            type:"POST",
+            data:{
+                id : idNguPhap
+            },
+            success: function (value) {
+                console.log(value);
+                $("#tenNguPhap").val(value.tenNguPhap);
+                $("#url").val(value.url);
+                $("#noiDung").val(value.noiDung);
+            }
+        })
+    })
+
+    $("#xulythoatnguphap").click(function (event) {
+        event.preventDefault();
+        $("#xulyupdatenguphap").addClass("hidden");
+        $("#xulythoatnguphap").addClass("hidden");
+        $("#xulynguphap").removeClass("hidden");
+    })
+
+
+    $("#xulyupdatenguphap").click(function (event) {
+        event.preventDefault();
+        var formData = $("#form-lession1").serializeArray();
+        json = {};
+        $.each(formData, function(i, field){
+            json[field.name] = field.value;
+        });
+        json["id"] = idNguPhap;
+        console.log(id);
+        $.ajax({
+            url: "/api/xulyupdatenguphap",
+            type:"POST",
+            data:{
+                dataJson : JSON.stringify(json)
+            },
+            success: function (value) {
+
+            }
+        })
+    })
+
 
 
 

@@ -53,17 +53,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <input class="form-control" name="nghia" id="nghia">
 
                                     <br/>
-                                    <button id="xuly" type="submit" class="btn btn-primary">Thêm Từ Vựng</button>
+                                    <button id="xulytuvung" type="submit" class="btn btn-primary">Thêm Từ Vựng</button>
                                     <button id="xulyupdatetuvung"  class="btn btn-primary hidden">Update Từ Vựng</button>
-                                    <button id="xulythoat"  class="btn btn-primary hidden">Thoát</button>
+                                    <button id="xulythoattuvung"  class="btn btn-primary hidden">Thoát</button>
                                 </div>
 
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                             </form>
-
-                            <button  class="btn btn-primary">
-                                <a href="/admin/minna/nguphap/${list.getId()}">Thêm Ngữ Pháp</a>
-                            </button>
                         </div>
 
 
@@ -91,7 +87,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <td>${tuvung.getNghia()}</td>
                                             <td class="idlession" data-id="${tuvung.getId()}" >
                                                 <button class="updatetuvung btn btn-primary">CS</button> ||
-                                                <a href="/admin/minna/xoa/${tuvung.getId()}">Xóa</a></td>
+                                                <a href="/admin/minna/xoa/tuvung/${tuvung.getId()}">Xóa</a></td>
                                         </tr>
                                     </c:forEach>
                                     </tbody>
@@ -102,13 +98,78 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                 </div>
             </div>
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <form id="form-lession1" action="/admin/minna/themnguphap/${list.getId()}" method="post">
+                            <h3>Ngữ Pháp Minna:</h3>
+                            <div class="form-group">
+                                <label for="tenNguPhap">Tên Ngữ Pháp: </label>
+                                <input class="form-control" name="tenNguPhap" id="tenNguPhap">
+
+                                <label for="url">Url: </label>
+                                <input class="form-control" name="url" id="url">
+
+                                <label for="noiDung">Nội Dung: </label>
+                                <input class="form-control" name="noiDung" id="noiDung">
+                                <br/>
+                                <button id="xulynguphap" type="submit" class="btn btn-primary">Thêm Ngữ Pháp</button>
+                                <button id="xulyupdatenguphap"  class="btn btn-primary hidden">Update Ngữ Pháp</button>
+                                <button id="xulythoatnguphap"  class="btn btn-primary hidden">Thoát</button>
+                            </div>
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                        </form>
+                    </div>
+
+
+
+
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12　col-lg-12  ">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <td>Tên Ngữ Pháp</td>
+                                        <td>Url</td>
+                                        <td>Nội Dung</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <c:forEach var="nguphap" items="${nguphap}">
+                                        <tr>
+                                            <td>${nguphap.getTenNguPhap()}</td>
+                                            <td>${nguphap.getUrl()}</td>
+                                            <td>${nguphap.getNoiDung()}</td>
+                                            <td class="idnguphap" data-id="${nguphap.getId()}" >
+                                                <button class="updatenguphap btn btn-primary">CS</button> ||
+                                                <a href="/admin/minna/xoa/nguphap/${nguphap.getId()}">Xóa</a></td>
+                                        </tr>
+                                    </c:forEach>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <button class="btn btn-primary"><a href="/admin">Back</a></button>
+                <br/>
+                <br/>
+
+            </div>
+
+
             <jsp:include page="../footer.jsp"/>
         </div>
     </div>
     <!--//content-inner-->
     <!--/sidebar-menu-->
-    <jsp:include page="adminleft.jsp"/>
 </div>
-<jsp:include page="adminfooter.jsp"/>
 </body>
 </html>

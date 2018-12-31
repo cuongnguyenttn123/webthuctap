@@ -22,7 +22,7 @@
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/dbthuctapcongnhan" />
+        <property name="url" value="jdbc:mysql://localhost:3306/dbthuctapcongnhan?characterEncoding=utf8" />
         <property name="username" value="root" />
         <property name="password" value="980137" />
     </bean>
@@ -33,9 +33,11 @@
         <property name="packagesToScan" value="thuctapcongnhan.ttn.entity" />
         <property name="hibernateProperties">
             <props>
-                <!--<prop key="hibernate.hbm2ddl.auto">update</prop>-->
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.connection.CharSet">utf8</prop>
+                <prop key="hibernate.connection.characterEncoding">utf8</prop>
+                <prop key="hibernate.connection.useUnicode">true</prop>
             </props>
         </property>
     </bean>

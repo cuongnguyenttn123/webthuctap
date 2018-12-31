@@ -51,7 +51,11 @@ public class BaiHocService {
         baiHocDAO.themBaiHoc(baiHocEntity);
     }
 
-    public void updateBaiHoc(BaiHocEntity baiHocEntity){
+    public void updateBaiHoc(BaiHocResponse baiHocResponse){
+        BaiHocEntity baiHocEntity = baiHocReponsitory.findAllById(baiHocResponse.getId());
+        baiHocEntity.setTenBaiHoc(baiHocResponse.getTenBaiHoc());
+        baiHocEntity.setChuThich(baiHocResponse.getChuThich());
+        baiHocEntity.setLevel(baiHocResponse.getLevel());
         baiHocDAO.updateBaiHocEntity(baiHocEntity);
     }
 

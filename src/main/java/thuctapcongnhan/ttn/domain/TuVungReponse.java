@@ -9,6 +9,19 @@ public class TuVungReponse {
     private String nghia;
     private Integer idBaiHoc;
 
+    public String get_csrf() {
+        return _csrf;
+    }
+
+    public void set_csrf(String _csrf) {
+        this._csrf = _csrf;
+    }
+
+    private String _csrf;
+
+
+
+
     public TuVungReponse(Integer id, String tuVung, String kanJi, String phienAm, String nghia, Integer idBaiHoc) {
         this.id = id;
         this.tuVung = tuVung;

@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import thuctapcongnhan.ttn.dao.UserDAO;
+import thuctapcongnhan.ttn.domain.UserReponse;
 import thuctapcongnhan.ttn.reponsitory.UserReponsitory;
 
 
@@ -36,6 +37,14 @@ public class MyUserDetailsService implements UserDetailsService {
 
     public thuctapcongnhan.ttn.entity.User getUserByName(String user ){
         return userReponsitory.findByUsername(user);
+    }
+
+    public void createUser(UserReponse userReponse){
+        thuctapcongnhan.ttn.entity.User user = new thuctapcongnhan.ttn.entity.User();
+        user.setUsername(userReponse.getUserName());
+        user.setPassword(userReponse.getPassWord());
+        user.setEnabled(true);
+        userDAO.themUser(user);
     }
 
 
