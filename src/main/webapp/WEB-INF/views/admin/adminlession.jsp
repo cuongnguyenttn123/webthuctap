@@ -11,8 +11,9 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- Bootstrap Core CSS -->
+    <jsp:include page="adminlib.jsp"/>
 
-    <link href="../../resources/admin/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <%--<link href="../../resources/admin/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
     <!-- Custom CSS -->
     <link href="../../resources/admin/css/style.css" rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="../../resources/admin/css/morris.css" type="text/css"/>
@@ -24,7 +25,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
     <link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <!-- lined-icons -->
-    <link rel="stylesheet" href="../../resources/admin/css/icon-font.min.css" type='text/css' />
+    <link rel="stylesheet" href="../../resources/admin/css/icon-font.min.css" type='text/css' />--%>
     <!-- //lined-icons -->
 </head>
 <body>

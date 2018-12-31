@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 import thuctapcongnhan.ttn.domain.BaiHocResponse;
 import thuctapcongnhan.ttn.domain.NguPhapReponse;
 import thuctapcongnhan.ttn.domain.TuVungReponse;
@@ -14,7 +15,7 @@ import thuctapcongnhan.ttn.service.TuVungService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/admin/minna")
+@RequestMapping("/admin/")
 public class AdminMinnaController {
     @Autowired
     BaiHocService baiHocService;
@@ -26,7 +27,7 @@ public class AdminMinnaController {
     NguPhapService nguPhapService;
 
 
-    @GetMapping("/chinhhsua/{idBaiHoc}")
+    @GetMapping("/minna/chinhhsua/{idBaiHoc}")
     public String getLessionAdmin(@PathVariable Integer idBaiHoc, ModelMap modelMap){
         List<TuVungReponse> vocabularyResponses = baiHocService.getListTuVungById(idBaiHoc);
         BaiHocResponse baiHocResponse = baiHocService.getBaiHocById(idBaiHoc) ;
@@ -35,17 +36,17 @@ public class AdminMinnaController {
         modelMap.addAttribute("voca", vocabularyResponses);
         modelMap.addAttribute("nguphap", nguPhapReponses);
 
-        return "admin/adminminna";
+        return "/admin/adminminna";
     }
 
 
-    @GetMapping("/xoa/tuvung/{id}")
+    @GetMapping("/minna/xoa/tuvung/{id}")
     public String deleteMinnaAdmin(@PathVariable Integer id){
         tuVungService.deleteTuVungById(id);
-        return "admin/dashboard";
+        return "/admin/dashboard";
     }
 
-    @PostMapping("/themtuvung/{idBaiHoc}")
+    @PostMapping("/minna/themtuvung/{idBaiHoc}")
     public String themTuVung(@PathVariable Integer idBaiHoc, @RequestParam String tuVung,
                              @RequestParam String kanJi, @RequestParam String phienAm, @RequestParam String nghia){
 
@@ -58,7 +59,7 @@ public class AdminMinnaController {
         tuVungService.createTuVung(tuVungReponse);
         return "admin/dashboard";
     }
-    @GetMapping("/nguphap/{idBaiHoc}")
+    @GetMapping("/minna/nguphap/{idBaiHoc}")
     public String themNguPhap(@PathVariable Integer idBaiHoc, ModelMap modelMap){
         modelMap.addAttribute("idBaiHoc", idBaiHoc);
         return "admin/adminnguphap";
@@ -66,7 +67,7 @@ public class AdminMinnaController {
 
 
 
-    @PostMapping("themnguphap/{idBaiHoc}")
+    @PostMapping("/minna/themnguphap/{idBaiHoc}")
     public String themNguPhap(@PathVariable Integer idBaiHoc, @RequestParam String tenNguPhap, @RequestParam String url,
                               @RequestParam String noiDung){
         NguPhapReponse nguPhapReponse = new NguPhapReponse();
@@ -78,9 +79,10 @@ public class AdminMinnaController {
         return "admin/dashboard";
     }
 
-    @GetMapping("/xoa/nguphap/{id}")
+    @GetMapping("/minna/xoa/nguphap/{id}")
     public String deleteMinnaAdminNguPhap(@PathVariable Integer id){
         nguPhapService.deleteById(id);
+       // return new RedirectView("admin");
         return "admin/dashboard";
     }
 
