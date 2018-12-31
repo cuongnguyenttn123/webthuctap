@@ -29,6 +29,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 <div class="page-container">
+
+    <div class="left-content">
+        <div class="mother-grid-inner">
+            <div id="header1" class="nav3">
+                <jsp:include page="navbarmenu.jsp"/>
+
+            </div>
+        </div>
+    </div>
     <!--/content-inner-->
     <div class="left-content">
         <div class="mother-grid-inner">

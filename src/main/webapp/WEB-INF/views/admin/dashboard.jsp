@@ -4,7 +4,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-<!DOCTYPE HTML>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Pooled Admin Panel Category Flat Bootstrap Responsive Web Template | Home :: w3layouts</title>
@@ -35,8 +35,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--/content-inner-->
     <div class="left-content">
         <div class="mother-grid-inner">
+            <div id="header1" class="nav3">
+                <jsp:include page="navbarmenu.jsp"/>
 
-
+            </div>
         </div>
     </div>
     <!--//content-inner-->
