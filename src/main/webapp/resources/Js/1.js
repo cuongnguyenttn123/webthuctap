@@ -35,6 +35,7 @@
     $("#xulythoat").click(function (event) {
         event.preventDefault();
         $("#xulyupdate").addClass("hidden");
+        $("#xulyupdatebaiviet").addClass("hidden");
         $("#xulythoat").addClass("hidden");
         $("#xuly").removeClass("hidden");
     })
@@ -181,6 +182,59 @@
             async: false,
             cache: false,
             enctype: "multipart/form-data",
+            success: function (value) {
+
+            }
+        })
+    })
+
+
+
+    /*update baiViet*/
+    var idBaiViet = "";
+    $(".updatebaiviet").click(function () {
+        $("#xulyupdatebaiviet").removeClass("hidden");
+        $("#xulythoatbaiviet").removeClass("hidden");
+        $("#xulybaiviet").addClass("hidden");
+        idBaiViet = $(this).closest("tr").find(".idbaiviet").attr("data-id");
+        $.ajax({
+            url: "/api/updatebaiviet",
+            type:"POST",
+            data:{
+                id : idBaiViet
+            },
+            success: function (value) {
+                console.log(value);
+                $("#tenBaiViet").val(value.tenBaiViet);
+                $("#chuThich").val(value.chuThich);
+                $("#noiDung").val(value.noiDung);
+            }
+        })
+    })
+
+    $("#xulythoatbaiviet").click(function (event) {
+        event.preventDefault();
+        $("#xulyupdatebaiviet").addClass("hidden");
+        $("#xulythoatbaiviet").addClass("hidden");
+        $("#xulybaiviet").removeClass("hidden");
+    })
+
+
+    $("#xulyupdatebaiviet").click(function (event) {
+        event.preventDefault();
+        var formData = $("#form-baiviet").serializeArray();
+        json = {};
+        $.each(formData, function(i, field){
+            json[field.name] = field.value;
+        });
+        json["id"] = idBaiViet;
+        console.log(id);
+        $.ajax({
+            url: "/api/xulyupdatebaiviet",
+            type:"POST",
+            data:{
+                dataJson : JSON.stringify(json)
+            },
             success: function (value) {
 
             }

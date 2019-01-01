@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import thuctapcongnhan.ttn.domain.BaiHocResponse;
+import thuctapcongnhan.ttn.domain.BaiVietReponse;
 import thuctapcongnhan.ttn.domain.NguPhapReponse;
 import thuctapcongnhan.ttn.domain.TuVungReponse;
 import thuctapcongnhan.ttn.entity.BaiHocEntity;
 import thuctapcongnhan.ttn.service.BaiHocService;
+import thuctapcongnhan.ttn.service.BaiVietService;
 import thuctapcongnhan.ttn.service.NguPhapService;
 import thuctapcongnhan.ttn.service.TuVungService;
 
@@ -34,6 +36,9 @@ public class ApiController {
 
     @Autowired
     NguPhapService nguPhapService;
+
+    @Autowired
+    BaiVietService baiVietService;
 
 
     @PostMapping(path = "/update", produces = "application/json; charset=utf-8")
@@ -122,6 +127,31 @@ public class ApiController {
             e.printStackTrace();
         }
         return "admin/adminbaiviet";
+    }
+
+
+
+    /*Update Bai Viet*/
+    @PostMapping(path = "/updatebaiviet", produces = "application/json; charset=utf-8")
+    @ResponseBody
+    public BaiVietReponse getBaiViet(Integer id){
+        BaiVietReponse baiVietReponse = baiVietService.getBaiVietById(id);
+        return baiVietReponse;
+    }
+
+
+    @PostMapping(path = "/xulyupdatebaiviet", produces = "application/json; charset=utf-8")
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public String xuLyUpdateBaiViet(@RequestParam String dataJson){
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            BaiVietReponse baiHocResponse = objectMapper.readValue(dataJson, BaiVietReponse.class);
+            baiVietService.updateBaiViet(baiHocResponse);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "admin/dashboard";
     }
 
 }

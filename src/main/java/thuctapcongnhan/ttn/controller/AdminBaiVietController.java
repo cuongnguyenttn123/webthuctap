@@ -3,9 +3,7 @@ package thuctapcongnhan.ttn.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import thuctapcongnhan.ttn.domain.BaiHocResponse;
 import thuctapcongnhan.ttn.domain.BaiVietReponse;
 import thuctapcongnhan.ttn.service.BaiVietService;
@@ -30,4 +28,18 @@ public class AdminBaiVietController {
         baiVietService.deleteById(id);
         return "admin/adminbaiviet";
     }
+
+    @PostMapping("/thembaiviet")
+    public String themBaiViet(@RequestParam String tenBaiViet, @RequestParam String chuThich,
+                              @RequestParam String noiDung, @RequestParam String user){
+        BaiVietReponse baiVietReponse = new BaiVietReponse();
+        baiVietReponse.setTenBaiViet(tenBaiViet);
+        baiVietReponse.setChuThich(chuThich);
+        baiVietReponse.setNoiDung(noiDung);
+        baiVietReponse.setUser(user);
+        baiVietService.themBaiViet(baiVietReponse);
+
+        return "admin/dashboard";
+    }
+
 }

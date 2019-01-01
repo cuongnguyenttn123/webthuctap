@@ -30,7 +30,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             <div class="container">
                 <div class="row">
-                    <form id="form-lession" action="/admin/themviet" method="post">
+                    <form id="form-baiviet" action="/admin/baiviet/thembaiviet" method="post">
                         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                             <h3>Bài Viết:</h3>
                             <div class="form-group">
@@ -43,15 +43,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <label for="noiDung">Nội Dung Bài Học: </label>
                                 <input class="form-control" name="noiDung" id="noiDung">
 
-                                <h4>Hình Ảnh: </h4>
-
-                                <input type="file" name="hinhanhupload" id="hinhanhupload" class="form-control">
-
                                 <input type="hidden" name="user" value="${pageContext.request.userPrincipal.name}">
                                 <br/>
-                                <button id="xuly" type="submit" class="btn btn-primary">Thêm Bài Viết</button>
+                                <button id="xulybaiviet" type="submit" class="btn btn-primary">Thêm Bài Viết</button>
                                 <button id="xulyupdatebaiviet"  class="btn btn-primary hidden">Update Bài Viết</button>
-                                <button id="xulythoat"  class="btn btn-primary hidden">Thoát</button>
+                                <button id="xulythoatbaiviet"  class="btn btn-primary hidden">Thoát</button>
                             </div>
                         </div>
                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
@@ -77,7 +73,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <td>${baiviet.getChuThich()}</td>
                                             <td>${baiviet.getNoiDung()}</td>
                                             <td class="idbaiviet" data-id="${baiviet.getId()}" >
-                                                <button class="update btn btn-primary">CS</button> ||
+                                                <button class="updatebaiviet btn btn-primary">CS</button> ||
                                                 <a href="/admin/baiviet/xoa/${baiviet.getId()}">Xóa</a></td>
                                         </tr>
                                     </c:forEach>
