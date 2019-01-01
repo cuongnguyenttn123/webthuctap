@@ -3,10 +3,7 @@ package thuctapcongnhan.ttn.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import thuctapcongnhan.ttn.domain.BaiVietReponse;
 import thuctapcongnhan.ttn.service.BaiVietService;
 
@@ -30,8 +27,11 @@ public class BaiVietController {
         return "baiviet/detailbaiviet";
     }
 
-    public String timKiemBaiViet(@RequestParam String timKiem, ModelMap modelMap){
-        return "timkiem";
+    @PostMapping("/seach")
+    public String timKiemBaiViet(@RequestParam String seach, ModelMap modelMap){
+        List<BaiVietReponse> baiVietReponses = baiVietService.getListSeach(seach);
+        modelMap.addAttribute("listBV", baiVietReponses);
+        return "baiviet/timkiem";
     }
 
 

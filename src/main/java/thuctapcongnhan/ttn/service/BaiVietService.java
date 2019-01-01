@@ -56,4 +56,10 @@ public class BaiVietService {
         baiVietEntity.setChuThich(baiVietReponse.getChuThich());
         baiVietDAO.updateBaiVietEntity(baiVietEntity);
     }
+
+    public List<BaiVietReponse> getListSeach(String seach){
+        return BaiVietConvertor.converterListEntity(baiVietReponsitory.findByTenBaiViet(seach));
+    }
+
+
 }
