@@ -59,7 +59,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12　col-lg-12  ">
-                        <table class="table">
+                        <table class="table" id="table-tuvung">
                             <thead>
                             <tr>
                                 <td>Tên Từ Vựng</td>
@@ -76,7 +76,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <td>${tuvung.getKanJi()}</td>
                                     <td>${tuvung.getPhienAm()}</td>
                                     <td>${tuvung.getNghia()}</td>
-                                    <td class="idlession" data-id="${tuvung.getId()}" >
+                                    <td class="idlession" data-id="${tuvung.getId()}" data-idbaihoc="${list.getId()}" >
                                         <button class="updatetuvung btn btn-primary">CS</button> ||
                                         <a href="/admin/minna/xoa/tuvung/${tuvung.getId()}">Xóa</a></td>
                                 </tr>
@@ -120,7 +120,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12　col-lg-12  ">
-                        <table class="table">
+                        <table class="table" id="table-nguphap">
                             <thead>
                             <tr>
                                 <td>Tên Ngữ Pháp</td>
@@ -134,7 +134,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <td>${nguphap.getTenNguPhap()}</td>
                                     <td>${nguphap.getUrl()}</td>
                                     <td>${nguphap.getNoiDung()}</td>
-                                    <td class="idnguphap" data-id="${nguphap.getId()}" >
+                                    <td class="idnguphap" data-id="${nguphap.getId()}" data-idbaihoc = "${list.getId()}" >
                                         <button class="updatenguphap btn btn-primary">CS</button> ||
                                         <a href="/admin/minna/xoa/nguphap/${nguphap.getId()}">Xóa</a></td>
                                 </tr>

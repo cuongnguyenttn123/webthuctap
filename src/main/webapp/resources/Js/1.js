@@ -47,8 +47,7 @@
         $("#xuly").removeClass("hidden");
     })
 
-
-    $("#xulyupdate").click(function (event) {
+    $("body").on("click", ".xulyupdate", function () {
         event.preventDefault();
         var formData = $("#form-lession").serializeArray();
         json = {};
@@ -73,11 +72,14 @@
 
     /*update tuvung*/
     var idTuVung = "";
-    $(".updatetuvung").click(function () {
+    var idBaiHoc = "";
+    $("body").on("click", ".updatetuvung", function () {
+    /*$(".updatetuvung").click(function () {*/
         $("#xulyupdatetuvung").removeClass("hidden");
         $("#xulythoattuvung").removeClass("hidden");
         $("#xulytuvung").addClass("hidden");
         idTuVung = $(this).closest("tr").find(".idlession").attr("data-id");
+        idBaiHoc = $(this).closest("tr").find(".idlession").attr("data-idbaihoc");
         $.ajax({
             url: "/api/updatetuvung",
             type:"POST",
@@ -102,7 +104,8 @@
     })
 
 
-    $("#xulyupdatetuvung").click(function (event) {
+    $("body").on("click", "#xulyupdatetuvung", function () {
+    /*$("#xulyupdatetuvung").click(function (event) {*/
         event.preventDefault();
         var formData = $("#form-lession").serializeArray();
         json = {};
@@ -110,6 +113,7 @@
             json[field.name] = field.value;
         });
         json["id"] = idTuVung;
+        json["idBaiHoc"] = idBaiHoc;
         console.log(id);
         $.ajax({
             url: "/api/xulyupdatetuvung",
@@ -118,18 +122,23 @@
                 dataJson : JSON.stringify(json)
             },
             success: function (value) {
-
+                alert(value);
+                var updatetuvung = $("#table-tuvung").find("tbody");
+                updatetuvung.empty();
+                updatetuvung.append(value);
             }
         })
     })
 
     /*update nguphap*/
     var idNguPhap = "";
-    $(".updatenguphap").click(function () {
+    $("body").on("click", ".updatenguphap", function () {
+    /*$(".updatenguphap").click(function () {*/
         $("#xulyupdatenguphap").removeClass("hidden");
         $("#xulythoatnguphap").removeClass("hidden");
         $("#xulynguphap").addClass("hidden");
         idNguPhap = $(this).closest("tr").find(".idnguphap").attr("data-id");
+        idBaiHoc = $(this).closest("tr").find(".idnguphap").attr("data-idbaihoc");
         $.ajax({
             url: "/api/updatenguphap",
             type:"POST",
@@ -137,7 +146,6 @@
                 id : idNguPhap
             },
             success: function (value) {
-                console.log(value);
                 $("#tenNguPhap").val(value.tenNguPhap);
                 $("#url").val(value.url);
                 $("#noiDung").val(value.noiDung);
@@ -152,8 +160,8 @@
         $("#xulynguphap").removeClass("hidden");
     })
 
-
-    $("#xulyupdatenguphap").click(function (event) {
+    $("body").on("click", "#xulyupdatenguphap", function () {
+    /*$("#xulyupdatenguphap").click(function (event) {*/
         event.preventDefault();
         var formData = $("#form-lession1").serializeArray();
         json = {};
@@ -161,6 +169,7 @@
             json[field.name] = field.value;
         });
         json["id"] = idNguPhap;
+        json["idBaiHoc"] = idBaiHoc;
         console.log(id);
         $.ajax({
             url: "/api/xulyupdatenguphap",
@@ -169,7 +178,9 @@
                 dataJson : JSON.stringify(json)
             },
             success: function (value) {
-
+                var updatenguphap = $("#table-nguphap").find("tbody");
+                updatenguphap.empty();
+                updatenguphap.append(value);
             }
         })
     })
@@ -200,13 +211,13 @@
         })
     })
 
+
     $("#xulythoatbaiviet").click(function (event) {
         event.preventDefault();
         $("#xulyupdatebaiviet").addClass("hidden");
         $("#xulythoatbaiviet").addClass("hidden");
         $("#xulybaiviet").removeClass("hidden");
     })
-
 
     $("#xulyupdatebaiviet").click(function (event) {
         event.preventDefault();
@@ -228,8 +239,6 @@
             }
         })
     })
-
-
     var files = [];
     var tenhinh ="";
     $("#hinhanh").change(function(event) {
@@ -250,11 +259,5 @@
             }
         })
     })
-
-
-
-
-
-
 });
 

@@ -90,18 +90,35 @@ public class ApiController {
     }
 
 
-    @PostMapping(path = "/xulyupdatetuvung", produces = "application/json; charset=utf-8")
+    @PostMapping(path = "/xulyupdatetuvung", produces = "text/plain; charset=utf-8")
     @JsonIgnoreProperties(ignoreUnknown = true)
+    @ResponseBody
     public String xuLyUpdateTuVung(@RequestParam String dataJson){
         ObjectMapper objectMapper = new ObjectMapper();
+        TuVungReponse tuVungReponse1 = null;
         try {
             TuVungReponse tuVungReponse = objectMapper.readValue(dataJson, TuVungReponse.class);
             tuVungService.upDateTuVung(tuVungReponse);
+            tuVungReponse1 = tuVungReponse;
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "admin/dashboard";
+        List<TuVungReponse> vocabularyResponses = baiHocService.getListTuVungById(tuVungReponse1.getIdBaiHoc());
+        String html="";
+        for (TuVungReponse tuvung: vocabularyResponses
+             ) {
+            html+="<tr>";
+            html+="<td>"+tuvung.getTuVung()+"</td>";
+            html+="<td>"+tuvung.getKanJi()+"</td>";
+            html+="<td>"+tuvung.getPhienAm()+"</td>";
+            html+="<td>"+tuvung.getNghia()+"</td>";
+            html+="<td class='idlession' data-id='"+tuvung.getId()
+                    +"'> <button class='updatetuvung btn btn-primary'>CS</button> || <a href='/admin/minna/xoa/tuvung/"
+                    +tuvung.getId()+"'>Xóa</a></td>";
+            html+="</tr>";
+        }
+        return html;
     }
 
     /*Update Ngu Phap*/
@@ -112,19 +129,34 @@ public class ApiController {
         return nguPhapReponse;
     }
 
-
-    @PostMapping(path = "/xulyupdatenguphap", produces = "application/json; charset=utf-8")
+    @PostMapping(path = "/xulyupdatenguphap", produces = "text/plain; charset=utf-8")
     @JsonIgnoreProperties(ignoreUnknown = true)
+    @ResponseBody
     public String xuLyUpdateNguPhap(@RequestParam String dataJson){
         ObjectMapper objectMapper = new ObjectMapper();
+        NguPhapReponse nguPhapReponse1 = null;
         try {
             NguPhapReponse nguPhapReponse = objectMapper.readValue(dataJson, NguPhapReponse.class);
             nguPhapService.updateNguPhap(nguPhapReponse);
-
+            nguPhapReponse1 = nguPhapReponse;
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "admin/dashboard";
+        String html = "";
+        List<NguPhapReponse> nguPhapReponses = baiHocService.getNguPhapById(nguPhapReponse1.getIdBaiHoc());
+        BaiHocResponse list = baiHocService.getBaiHocById(nguPhapReponse1.getIdBaiHoc());
+        for (NguPhapReponse nguphap: nguPhapReponses) {
+
+            html+="<tr>";
+                html+="<td>"+nguphap.getTenNguPhap()+"</td>";
+                html+="<td>"+nguphap.getUrl()+"</td>";
+                html+="<td>"+nguphap.getNoiDung()+"</td>";
+                html+="<td class='idnguphap' data-id='"+nguphap.getId()+"'data-idbaihoc = '"+list.getId()
+                        +"'> <button class='updatenguphap btn btn-primary'>CS</button> || <a href='/admin/minna/xoa/nguphap/"+nguphap.getId()+"'>Xóa</a></td>";
+            html+="</tr>";
+
+        }
+        return html;
     }
 
     @Autowired
