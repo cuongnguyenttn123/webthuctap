@@ -22,6 +22,7 @@ import javax.servlet.ServletContext;
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.List;
 
 @Controller
 @RequestMapping("/api")
@@ -46,20 +47,37 @@ public class ApiController {
         return baiHocResponse;
     }
 
-    @PostMapping(path = "/xulyupdate", produces = "application/json; charset=utf-8")
+    @PostMapping(path = "/xulyupdate", produces = "text/plain; charset=utf-8")
     @ResponseBody
     @JsonIgnoreProperties(ignoreUnknown = true)
-    public BaiHocResponse xuLyUpdate(@RequestParam String dataJson){
+    public String xuLyUpdate(@RequestParam String dataJson){
         ObjectMapper objectMapper = new ObjectMapper();
+        BaiHocResponse baiHocResponse1 = null;
         try {
             BaiHocResponse baiHocResponse = objectMapper.readValue(dataJson, BaiHocResponse.class);
-
+            baiHocResponse1 = baiHocResponse;
             baiHocService.updateBaiHoc(baiHocResponse);
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        List<BaiHocResponse> baiHocResponses = baiHocService.getListBaiHocByLevel(baiHocResponse1.getLevel());
+        String html = "";
+
+        for (BaiHocResponse baiHocResponse: baiHocResponses) {
+            html+="<tr>";
+
+                html+="<td>"+baiHocResponse.getTenBaiHoc()+"</td>";
+                html+= "<td>"+ baiHocResponse.getChuThich()+ "</td>";
+                html+= "<td>"+ baiHocResponse.getLevel()+"</td>";
+
+                html+= "<td class='idlession' data-id='"+baiHocResponse.getId()
+                        +"'><button class='update btn btn-primary'>CS</button> || <button class='updatenoidung btn btn-primary'> <a href='/admin/minna/chinhhsua/"
+                        +baiHocResponse.getId()+"'>CS Nội Dung</a></button> || <a href='/admin/xoa/"+baiHocResponse.getId()+"'>Xóa</a></td>";
+
+            html+="</tr>";
+        }
+
+        return html;
     }
 
 
@@ -86,7 +104,7 @@ public class ApiController {
         return "admin/dashboard";
     }
 
-    /*Update Tu vung*/
+    /*Update Ngu Phap*/
     @PostMapping(path = "/updatenguphap", produces = "application/json; charset=utf-8")
     @ResponseBody
     public NguPhapReponse getNguPhap(Integer id){

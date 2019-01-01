@@ -10,7 +10,8 @@
      return false;
     });
     var id ="";
-    $(".update").click(function () {
+
+    $("body").on("click", ".update", function () {
         $("#xulyupdate").removeClass("hidden");
         $("#xulythoat").removeClass("hidden");
         $("#xuly").addClass("hidden");
@@ -31,6 +32,12 @@
             }
         })
     })
+
+
+
+    /*$(".update").click(function () {
+
+    })*/
 
     $("#xulythoat").click(function (event) {
         event.preventDefault();
@@ -57,7 +64,9 @@
                 dataJson : JSON.stringify(json)
             },
             success: function (value) {
-
+                var updatebaihoc = $("#table-baihoc").find("tbody");
+                updatebaihoc.empty();
+                updatebaihoc.append(value);
             }
         })
     })
