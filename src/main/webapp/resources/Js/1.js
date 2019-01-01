@@ -238,7 +238,6 @@
             enctype: "multipart/form-data",
             success: function (value) {
                 $("#tenHinhAnh").val(value);
-                alert(value);
             }
         })
     })
