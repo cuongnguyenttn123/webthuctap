@@ -20,7 +20,7 @@
                             <li><a href="/minna/N4">N4</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Bài Viết</a></li>
+                    <li><a href="/baiviet">Bài Viết</a></li>
                     <li><a href="#">Dịch vụ</a></li>
                     <li><a href="#">Liên hệ</a></li>
                 </ul>

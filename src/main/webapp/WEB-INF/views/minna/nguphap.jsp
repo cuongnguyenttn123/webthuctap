@@ -44,10 +44,6 @@
 
                     <br/>
                     <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
 
                     ${nguphap.getNoiDung()}
                 </c:forEach>

@@ -13,8 +13,14 @@ public class BaiVietEntity {
     @Column(name = "tenbaiviet")
     private String tenBaiViet;
 
+    @Column(name = "chuthich")
+    private String chuThich;
+
     @Column(name = "noidung")
     private String noiDung;
+
+    @Column(name = "hinhanh")
+    private String hinhAnh;
 
     @ManyToOne()
     @JoinColumn(name = "iduser", nullable = false)
@@ -50,5 +56,21 @@ public class BaiVietEntity {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getChuThich() {
+        return chuThich;
+    }
+
+    public String getHinhAnh() {
+        return hinhAnh;
+    }
+
+    public void setHinhAnh(String hinhAnh) {
+        this.hinhAnh = hinhAnh;
+    }
+
+    public void setChuThich(String chuThich) {
+        this.chuThich = chuThich;
     }
 }

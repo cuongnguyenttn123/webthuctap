@@ -164,6 +164,29 @@
         })
     })
 
+    var files = [];
+    var tenhinh ="";
+    $("#hinhanhupload").change(function(event) {
+        files = event.target.files;
+        tenhinh = files[0].name;
+        var forms = new FormData();
+        forms.append("file", files[0]);
+        alert("bâds");
+        $.ajax({
+            url: "/api/xulyuploadanh",
+            type:"POST",
+            data:forms,
+            contentType:false,
+            processData: false,
+            async: false,
+            cache: false,
+            enctype: "multipart/form-data",
+            success: function (value) {
+
+            }
+        })
+    })
+
 
 
 
