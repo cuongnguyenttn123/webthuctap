@@ -59,7 +59,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12　col-lg-12  ">
-                        <table class="table" id="table-tuvung">
+                        <table class="table" id="table-tuvung" style="width: 650px;">
                             <thead>
                             <tr>
                                 <td>Tên Từ Vựng</td>
@@ -120,7 +120,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12　col-lg-12  ">
-                        <table class="table" id="table-nguphap">
+                        <table class="table" id="table-nguphap" style="width: 650px;">
                             <thead>
                             <tr>
                                 <td>Tên Ngữ Pháp</td>

@@ -20,10 +20,11 @@
                     <li><a href="#">Liên hệ</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <form class="navbar-form navbar-left" role="search" method="post" action="/minna/save">
+                    <form class="navbar-form navbar-left" role="search" method="post" action="/baiviet/seach">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
+                            <input type="text" class="form-control" placeholder="Search" name="seach">
                         </div>
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                         <button type="submit" class="btn btn-info">Search</button>
                     </form>
 

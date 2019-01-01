@@ -30,8 +30,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             <div class="container">
                 <div class="row">
-                    <form id="form-baiviet" action="/admin/baiviet/thembaiviet" method="post">
-                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <form id="form-baiviet" action="/admin/baiviet/thembaiviet" method="post">
                             <h3>Bài Viết:</h3>
                             <div class="form-group">
                                 <label for="tenBaiViet">Tên Bài Viết: </label>
@@ -47,7 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                 <br/>
                                 <label for="noiDung">Nội Dung Bài Học: </label>
-                                <input class="form-control" name="noiDung" id="noiDung">
+                                <textarea class="form-control" name="noiDung" id="noiDung"></textarea>
 
 
 
@@ -57,14 +57,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <button id="xulyupdatebaiviet"  class="btn btn-primary hidden">Update Bài Viết</button>
                                 <button id="xulythoatbaiviet"  class="btn btn-primary hidden">Thoát</button>
                             </div>
-                        </div>
-                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                    </form>
+
+                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                        </form>
+                    </div>
 
                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12　col-lg-12  ">
-                                <table class="table">
+                                <table class="table " id="table-baiviet"style="width: 650px;">
                                     <thead>
                                     <tr>
                                         <td>Tên Bài Viết</td>
@@ -81,9 +82,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <td>${baiviet.getChuThich()}</td>
                                             <td>${baiviet.getNoiDung()}</td>
                                             <td class="idbaiviet" data-id="${baiviet.getId()}" >
-                                                <button class="updatebaiviet btn btn-primary">CS</button> ||
-                                                <button class="themhinhanh btn btn-primary">
-                                                    <a href="/api/themhinhanh/${baiviet.getId()}">Thêm HA</a></button>
+                                                <button class="updatebaiviet btn btn-primary">CS</button>
                                                 ||<a href="/admin/baiviet/xoa/${baiviet.getId()}">Xóa</a></td>
                                         </tr>
                                     </c:forEach>
@@ -102,6 +101,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--/sidebar-menu-->
     <jsp:include page="adminleft.jsp"/>
 </div>
-<jsp:include page="adminfooter.jsp"/>
+<%--<jsp:include page="adminfooter.jsp"/>--%>
 </body>
 </html>

@@ -191,7 +191,8 @@
 
     /*update baiViet*/
     var idBaiViet = "";
-    $(".updatebaiviet").click(function () {
+    $("body").on("click", ".updatebaiviet", function () {
+    /*$(".updatebaiviet").click(function () {*/
         $("#xulyupdatebaiviet").removeClass("hidden");
         $("#xulythoatbaiviet").removeClass("hidden");
         $("#xulybaiviet").addClass("hidden");
@@ -218,8 +219,8 @@
         $("#xulythoatbaiviet").addClass("hidden");
         $("#xulybaiviet").removeClass("hidden");
     })
-
-    $("#xulyupdatebaiviet").click(function (event) {
+    $("body").on("click", "#xulyupdatebaiviet", function () {
+    /*$("#xulyupdatebaiviet").click(function (event) {*/
         event.preventDefault();
         var formData = $("#form-baiviet").serializeArray();
         json = {};
@@ -235,7 +236,9 @@
                 dataJson : JSON.stringify(json)
             },
             success: function (value) {
-
+                var updatebaiviet = $("#table-baiviet").find("tbody");
+                updatebaiviet.empty();
+                updatebaiviet.append(value);
             }
         })
     })

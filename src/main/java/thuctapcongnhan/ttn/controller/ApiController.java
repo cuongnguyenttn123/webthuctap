@@ -187,9 +187,9 @@ public class ApiController {
         return baiVietReponse;
     }
 
-
-    @PostMapping(path = "/xulyupdatebaiviet", produces = "application/json; charset=utf-8")
+    @PostMapping(path = "/xulyupdatebaiviet", produces = "text/plain; charset=utf-8")
     @JsonIgnoreProperties(ignoreUnknown = true)
+    @ResponseBody
     public String xuLyUpdateBaiViet(@RequestParam String dataJson){
         ObjectMapper objectMapper = new ObjectMapper();
         try {
@@ -199,7 +199,19 @@ public class ApiController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "admin/dashboard";
+        String html="";
+        List<BaiVietReponse> baiVietReponses = baiVietService.getListReponse();
+        for (BaiVietReponse baiviet: baiVietReponses) {
+            html+="<tr>";
+            html+="<td>"+baiviet.getTenBaiViet()+"</td>";
+            html+="<td>"+baiviet.getChuThich()+"</td>";
+            html+="<td>"+baiviet.getNoiDung()+"</td>";
+            html+="<td class='idbaiviet' data-id='"+baiviet.getId()
+                    +"'> <button class='updatebaiviet btn btn-primary'>CS</button>||<a href='/admin/baiviet/xoa/"
+                    +baiviet.getId()+"'>Xóa</a></td>";
+            html+="</tr>";
+        }
+        return html;
     }
 
 }

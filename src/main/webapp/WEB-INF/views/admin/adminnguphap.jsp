@@ -41,7 +41,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <input class="form-control" name="url" id="url">
 
                                 <label for="noiDung">Nội Dung: </label>
-                                <input class="form-control" name="noiDung" id="noiDung">
+                                <textarea class="form-control" name="noiDung" id="noiDung"></textarea>
                                 <br/>
                                 <button id="xuly" type="submit" class="btn btn-primary">Thêm Ngữ Pháp</button>
                                 <button id="xulyupdatenguphap"  class="btn btn-primary hidden">Update Ngữ Pháp</button>
@@ -58,7 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12　col-lg-12  ">
-                                <table class="table">
+                                <table class="table" style="width: 650px;">
                                     <thead>
                                     <tr>
                                         <td>Tên Ngữ Pháp</td>
