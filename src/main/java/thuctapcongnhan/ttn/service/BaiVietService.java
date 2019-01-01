@@ -1,9 +1,11 @@
 package thuctapcongnhan.ttn.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import thuctapcongnhan.ttn.converter.BaiHocConverter;
 import thuctapcongnhan.ttn.converter.BaiVietConvertor;
 import thuctapcongnhan.ttn.dao.BaiVietDAO;
 import thuctapcongnhan.ttn.domain.BaiVietReponse;
@@ -57,8 +59,9 @@ public class BaiVietService {
         baiVietDAO.updateBaiVietEntity(baiVietEntity);
     }
 
-    public List<BaiVietReponse> getListSeach(String seach){
-        return BaiVietConvertor.converterListEntity(baiVietReponsitory.findByTenBaiViet(seach));
+    public List<BaiVietReponse> getListSeach(String seach, Integer first, Integer last){
+        Pageable top = (Pageable) new PageRequest(first, last);
+        return BaiVietConvertor.converterListEntity(baiVietReponsitory.findByTenBaiViet(seach, top));
     }
 
 

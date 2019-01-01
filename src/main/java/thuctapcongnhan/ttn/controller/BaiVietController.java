@@ -29,7 +29,7 @@ public class BaiVietController {
 
     @PostMapping("/seach")
     public String timKiemBaiViet(@RequestParam String seach, ModelMap modelMap){
-        List<BaiVietReponse> baiVietReponses = baiVietService.getListSeach(seach);
+        List<BaiVietReponse> baiVietReponses = baiVietService.getListSeach(seach, 0, 5);
         modelMap.addAttribute("listBV", baiVietReponses);
         return "baiviet/timkiem";
     }
