@@ -20,15 +20,13 @@
         <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
             <c:forEach items="${listBV}" var="baiViet">
                 <div class="row">
-                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                         <article class="tinmoi">
-                            <img src="<c:url value="/resources/Images/baiviet/${baiViet.getHinhAnh()}"/>" alt="">
+                                <img style="width: 335px;height: 200px;" src="<c:url value="/resources/Images/baiviet/${baiViet.getTenHinhAnh()}"/>" alt="">
                             <div class="tinmoind">
                                 <h4>${baiViet.getTenBaiViet()}</h4>
                                 <h5>${baiViet.getChuThich()} ...<a href="/baiviet/${baiViet.getId()}">xem tiep</a></h5>
                             </div>
                         </article>
-                    </div>
                 </div>
             </c:forEach>
 

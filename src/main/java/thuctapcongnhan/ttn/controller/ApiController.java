@@ -4,10 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import thuctapcongnhan.ttn.domain.BaiHocResponse;
@@ -113,20 +111,20 @@ public class ApiController {
 
     @Autowired
     ServletContext context;
-    @PostMapping("/xulyuploadanh")
+    @PostMapping("/xulyuploadhinhanh")
     @ResponseBody
     public String upLoadHinhAnh(MultipartHttpServletRequest request){
-        String path_file_save = context.getRealPath("/resources/Image/baiviet/");
+        String path_file_save = context.getRealPath("/resources/Images/baiviet/");
         Iterator<String> listName = request.getFileNames();
         MultipartFile mpf = request.getFile(listName.next());
         File file_name = new File(path_file_save + mpf.getOriginalFilename());
-        System.out.println(file_name);
+        System.out.println(mpf.getOriginalFilename());
         try {
             mpf.transferTo(file_name);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "admin/adminbaiviet";
+        return mpf.getOriginalFilename();
     }
 
 

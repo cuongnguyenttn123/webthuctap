@@ -40,8 +40,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <label for="chuThich">Chú Thích Bài Học: </label>
                                 <input class="form-control" name="chuThich" id="chuThich">
 
+                                <h4>Chọn Hình ảnh: </h4>
+                                <input type="file" name="tenHinhAnh" id="hinhanh" class="form-control">
+
+                                <input type="hidden" class="form-control" name="tenHinhAnh" id="tenHinhAnh">
+
+                                <br/>
                                 <label for="noiDung">Nội Dung Bài Học: </label>
                                 <input class="form-control" name="noiDung" id="noiDung">
+
+
 
                                 <input type="hidden" name="user" value="${pageContext.request.userPrincipal.name}">
                                 <br/>
@@ -74,7 +82,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <td>${baiviet.getNoiDung()}</td>
                                             <td class="idbaiviet" data-id="${baiviet.getId()}" >
                                                 <button class="updatebaiviet btn btn-primary">CS</button> ||
-                                                <a href="/admin/baiviet/xoa/${baiviet.getId()}">Xóa</a></td>
+                                                <button class="themhinhanh btn btn-primary">
+                                                    <a href="/api/themhinhanh/${baiviet.getId()}">Thêm HA</a></button>
+                                                ||<a href="/admin/baiviet/xoa/${baiviet.getId()}">Xóa</a></td>
                                         </tr>
                                     </c:forEach>
                                     </tbody>

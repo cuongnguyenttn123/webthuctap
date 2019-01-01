@@ -13,7 +13,7 @@ public class BaiVietConvertor {
         baiVietReponse.setChuThich(baiVietEntity.getChuThich());
         baiVietReponse.setNoiDung(baiVietEntity.getNoiDung());
         baiVietReponse.setTenBaiViet(baiVietEntity.getTenBaiViet());
-        baiVietReponse.setHinhAnh(baiVietEntity.getHinhAnh());
+        baiVietReponse.setTenHinhAnh(baiVietEntity.getHinhAnh());
         return baiVietReponse;
     }
 

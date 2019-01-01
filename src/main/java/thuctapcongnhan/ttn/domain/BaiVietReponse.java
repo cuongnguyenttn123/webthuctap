@@ -5,7 +5,16 @@ public class BaiVietReponse {
     private String tenBaiViet;
     private String chuThich;
     private String noiDung;
-    private String hinhAnh;
+
+    public String getTenHinhAnh() {
+        return tenHinhAnh;
+    }
+
+    public void setTenHinhAnh(String tenHinhAnh) {
+        this.tenHinhAnh = tenHinhAnh;
+    }
+
+    private String tenHinhAnh;
 
     private String user;
 
@@ -27,13 +36,7 @@ public class BaiVietReponse {
         this.user = user;
     }
 
-    public String getHinhAnh() {
-        return hinhAnh;
-    }
 
-    public void setHinhAnh(String hinhAnh) {
-        this.hinhAnh = hinhAnh;
-    }
 
     public BaiVietReponse(Integer id, String tenBaiViet, String chuThich, String noiDung) {
         this.id = id;

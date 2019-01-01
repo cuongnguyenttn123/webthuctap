@@ -45,6 +45,7 @@ public class BaiVietService {
         baiVietEntity.setTenBaiViet(baiVietReponse.getTenBaiViet());
         baiVietEntity.setUser(user1);
         baiVietEntity.setNoiDung(baiVietReponse.getNoiDung());
+        baiVietEntity.setHinhAnh(baiVietReponse.getTenHinhAnh());
         baiVietDAO.themBaiViet(baiVietEntity);
     }
 

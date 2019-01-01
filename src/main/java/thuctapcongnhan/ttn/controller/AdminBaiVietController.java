@@ -31,12 +31,13 @@ public class AdminBaiVietController {
 
     @PostMapping("/thembaiviet")
     public String themBaiViet(@RequestParam String tenBaiViet, @RequestParam String chuThich,
-                              @RequestParam String noiDung, @RequestParam String user){
+                              @RequestParam String noiDung, @RequestParam String user, @RequestParam String tenHinhAnh){
         BaiVietReponse baiVietReponse = new BaiVietReponse();
         baiVietReponse.setTenBaiViet(tenBaiViet);
         baiVietReponse.setChuThich(chuThich);
         baiVietReponse.setNoiDung(noiDung);
         baiVietReponse.setUser(user);
+        baiVietReponse.setTenHinhAnh(tenHinhAnh);
         baiVietService.themBaiViet(baiVietReponse);
 
         return "admin/dashboard";
