@@ -47,7 +47,7 @@
         $("#xuly").removeClass("hidden");
     })
 
-    $("body").on("click", ".xulyupdate", function () {
+    $("body").on("click", "#xulyupdate", function (event) {
         event.preventDefault();
         var formData = $("#form-lession").serializeArray();
         json = {};
@@ -104,7 +104,7 @@
     })
 
 
-    $("body").on("click", "#xulyupdatetuvung", function () {
+    $("body").on("click", "#xulyupdatetuvung", function (event) {
     /*$("#xulyupdatetuvung").click(function (event) {*/
         event.preventDefault();
         var formData = $("#form-lession").serializeArray();
@@ -160,7 +160,7 @@
         $("#xulynguphap").removeClass("hidden");
     })
 
-    $("body").on("click", "#xulyupdatenguphap", function () {
+    $("body").on("click", "#xulyupdatenguphap", function (event) {
     /*$("#xulyupdatenguphap").click(function (event) {*/
         event.preventDefault();
         var formData = $("#form-lession1").serializeArray();
@@ -204,7 +204,6 @@
                 id : idBaiViet
             },
             success: function (value) {
-                console.log(value);
                 $("#tenBaiViet").val(value.tenBaiViet);
                 $("#chuThich").val(value.chuThich);
                 $("#noiDung").val(value.noiDung);
@@ -219,7 +218,7 @@
         $("#xulythoatbaiviet").addClass("hidden");
         $("#xulybaiviet").removeClass("hidden");
     })
-    $("body").on("click", "#xulyupdatebaiviet", function () {
+    $("body").on("click", "#xulyupdatebaiviet", function (event) {
     /*$("#xulyupdatebaiviet").click(function (event) {*/
         event.preventDefault();
         var formData = $("#form-baiviet").serializeArray();
