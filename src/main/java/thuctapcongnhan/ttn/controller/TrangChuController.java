@@ -19,10 +19,10 @@ public class TrangChuController {
     BaiVietService baiVietService;
     @GetMapping
     public String getTrangChu(ModelMap modelMap){
-        List<BaiVietReponse> baiVietReponses = baiVietService.getListReponse();
-        int tongsopage = baiVietReponses.size()/5;
-        modelMap.addAttribute("listBV", baiVietReponses);
-        modelMap.addAttribute("tongsopage", tongsopage);
+        //List<BaiVietReponse> baiVietReponses = baiVietService.getListReponse();
+        //int tongsopage = baiVietReponses.size()/5;
+        //modelMap.addAttribute("listBV", baiVietReponses);
+        //modelMap.addAttribute("tongsopage", tongsopage);
         return "trangchu";
     }
 }
