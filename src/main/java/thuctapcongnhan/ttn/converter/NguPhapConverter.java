@@ -9,7 +9,7 @@ import java.util.List;
 
 public class NguPhapConverter {
     public static List<NguPhapReponse> converterByEntity(List<NguPhapEntity> nguPhapEntitys){
-        List<NguPhapReponse> nguPhapReponses = new ArrayList<>();
+        List<NguPhapReponse> nguPhapReponses = new ArrayList<NguPhapReponse>();
         for (NguPhapEntity nguPhapEntity: nguPhapEntitys) {
             NguPhapReponse nguPhapReponse = new NguPhapReponse();
             nguPhapReponse.setId(nguPhapEntity.getId());

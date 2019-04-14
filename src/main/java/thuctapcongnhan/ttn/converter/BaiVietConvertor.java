@@ -18,7 +18,7 @@ public class BaiVietConvertor {
     }
 
     public static List<BaiVietReponse> converterListEntity(List<BaiVietEntity> baiVietEntities){
-        List<BaiVietReponse> baiVietReponses = new ArrayList<>();
+        List<BaiVietReponse> baiVietReponses = new ArrayList<BaiVietReponse>();
         for (BaiVietEntity baiVietEntity: baiVietEntities) {
             BaiVietReponse baiVietReponse = converterByEntity(baiVietEntity);
             baiVietReponses.add(baiVietReponse);
