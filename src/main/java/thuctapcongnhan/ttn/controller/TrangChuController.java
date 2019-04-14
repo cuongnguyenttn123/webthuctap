@@ -15,8 +15,8 @@ import java.util.List;
 @RequestMapping("/")
 public class TrangChuController {
 
-    @Autowired
-    BaiVietService baiVietService;
+   /* @Autowired
+    BaiVietService baiVietService;*/
     @GetMapping
     public String getTrangChu(ModelMap modelMap){
         //List<BaiVietReponse> baiVietReponses = baiVietService.getListReponse();
